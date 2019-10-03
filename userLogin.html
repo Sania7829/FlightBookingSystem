@@ -12,6 +12,33 @@
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.topnav-right {
+  float: right;
+}
+
 .login-wrap{
 	width:100%;
 	margin:auto;
@@ -156,20 +183,31 @@ box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 </style>
 </head>
-<body background="images\2.jpg">
+<div class="topnav">
+ <div class="topnav-right">
+   <a href=FirstPage.html>Home</a>
+   <a href="about.html">About Us</a>  
+   <a href=contact.html>Contact</a>
+   <a href="userLogin.html">User Login</a>
+   <a href="adminLogin.html">Admin Login</a>  
+  </div>
+  </div>
+
+<body background="images\1.jpg">
 <div class="login-wrap">
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
 		<div class="login-form">
 			<div class="sign-in-htm">
+			<form action="Login" method="post">
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input">
+					<input id="user" type="text" class="input" name="u_name">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
+					<input id="pass" type="password" class="input" data-type="password" name="Password">
 				</div>
 				<div class="group">
 					<input id="check" type="checkbox" class="check" checked>
@@ -178,38 +216,61 @@ box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 				<div class="group">
 					<input type="submit" class="button" value="Sign In">
 				</div>
+				
 				<div class="hr"></div>
 				<div class="foot-lnk">
 					<a href="forgotPassword.html" style="color:white">Forgot Password?</a>
 				</div>
+				</form>>
+				
 			</div>
+			
 			<div class="sign-up-htm">
+			<form action="SaveServlet" method="post">
+			
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input">
+					<input id="user" type="text" class="input" name="u_name" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
+					<input id="password" type="password" class="input" data-type="password"  name="Password" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Repeat Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
+					<input id="confirm_password" type="password" class="input" data-type="password" name="RepeatPassword" required>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Email Address</label>
-					<input id="pass" type="text" class="input">
+					<input id="pass" type="text" class="input" name="Email_Id" required>
 				</div>
 				<div class="group">
 					<input type="submit" class="button" value="Sign Up">
 				</div>
 				<div class="hr"></div>
 				<div class="foot-lnk">
-					<label for="tab-1" style="color:white">Already Member?</a>
+					<label for="tab-1" style="color:white">Already Member?</label>
 				</div>
+			</form>
+				
 			</div>
 		</div>
+		
 	</div>
 </div>
+<script>
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;</script>
 </body>
 </html>

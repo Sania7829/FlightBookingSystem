@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("u_name");
 		String password = request.getParameter("Password");
 		if(LoginDao.validate(username,password)) {
-			RequestDispatcher rd=request.getRequestDispatcher("FirstPage.html"); 
+			RequestDispatcher rd=request.getRequestDispatcher("passengerForm.html"); 
 			 rd.forward(request,response);  
 		}
 		else {

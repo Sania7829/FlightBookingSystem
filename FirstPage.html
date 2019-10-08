@@ -138,7 +138,7 @@ p {text-align:center;}
 }
 
 .booking-form .form-group:not( .input-not-empty) .form-control:not( :focus) {
-	color: transparent;
+	color: white;
 }
 
 .booking-form .form-group .form-control:focus+.form-label {
@@ -207,8 +207,8 @@ p {text-align:center;}
    <a href="about.html">About Us</a>  
    <a href=contact.html>Contact</a>
     <a href="userLogin.html">User Login</a>
-    <a href="adminLogin.html">Admin Login</a>  
-  </div>
+<!--     <a href="adminLogin.html">Admin Login</a>  
+ -->  </div>
   </div>
 
  <h1><font color="white" size="10"><b><i>The Sky is Waiting for You</i></b></font></h1>
@@ -220,32 +220,26 @@ p {text-align:center;}
 						<div class="form-header">
 							<h1>Book Your Flight</h1>
 						</div>
-						<form>
+						<form action="Servlet1">
 							
 							<div class="form-group">
 <!-- 						<span class="form-label">Flying from</span>
  -->								
- 											<h6><font color="white" size="3">FROM</font>></h6>
+ 											<h6><font color="white" size="3" name="source">FROM</font>></h6>
  											<select class="form-control">
-											<option>Mumbai</option>
-											<option>Nagpur</option>
 											<option>Banglore</option>
-											<option>Pune</option>
-											<option>Hyderabad</option>
-											<option>Delhi</option>
+											<option>Nagpur</option>
+											<option>Mumbai</option>
 										</select>
 								<span class="select-arrow"></span>
 										
 							</div>
 							<div class="form-group">							
-							<h6><font color="white" size="3">TO</font>></h6>
+							<h6><font color="white" size="3" name="destinatiion">TO</font>></h6>
 							<select class="form-control">
-											<option>Nagpur</option>
 											<option>Mumbai</option>
+											<option>Nagpur</option>
 											<option>Banglore</option>
-											<option>Pune</option>
-											<option>Hyderabad</option>
-											<option>Delhi</option>
 										</select>
 																		<span class="select-arrow"></span>
 										
@@ -254,16 +248,16 @@ p {text-align:center;}
 								<div class="col-md-6">
 									<div class="form-group">
 									<h6><font color="white" size="3">DEPARTURE DATE</font>></h6>
-									<input class="form-control" type="date">
+									<input class="form-control" type="date" required>
 									</div>
 								</div>
-								<div class="col-md-6">
+							<!-- 	<div class="col-md-6">
 									<div class="form-group">
 									<h6><font color="white" size="3">RETURN DATE</font>></h6>
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" required>
 
 									</div>
-								</div>
+								</div> -->
 							</div>
 							<div class="row">
 								<div class="col-md-4">
@@ -316,8 +310,7 @@ p {text-align:center;}
 		</div>
 	</div>
 
-
-<!-- 	<script>
+	<!-- <script>
 		$('.form-control').each(function () {
 			floatedLabel($(this));
 		});
@@ -333,8 +326,8 @@ p {text-align:center;}
 			} else {
 				$field.removeClass('input-not-empty');
 			}
-		} -->
-	</script>
+		}
+	</script> -->
 
 </body>
 
